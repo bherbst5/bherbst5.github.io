@@ -17,7 +17,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            background: linear-gradient(135deg, #519c65 0%, #3d7a4f 100%);
             min-height: 100vh;
         }
 
@@ -70,7 +70,7 @@
         }
 
         .nav-links a:hover {
-            color: #ff6b6b;
+            color: #519c65;
         }
 
         .nav-links a::after {
@@ -80,7 +80,7 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #ff6b6b;
+            background-color: #519c65;
             transition: width 0.3s ease;
         }
 
@@ -126,7 +126,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(45deg, #519c65, #3d7a4f);
             transform: translateX(-50%);
         }
 
@@ -166,18 +166,18 @@
             top: 50%;
             width: 20px;
             height: 20px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(45deg, #519c65, #3d7a4f);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             z-index: 10;
             border: 4px solid white;
-            box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.2);
+            box-shadow: 0 0 0 4px rgba(81, 156, 101, 0.2);
         }
 
         .company-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            background: linear-gradient(45deg, #519c65, #3d7a4f);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -200,7 +200,7 @@
 
         .position-title {
             font-size: 1.1rem;
-            color: #ff6b6b;
+            color: #519c65;
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
@@ -243,7 +243,7 @@
             content: '▸';
             position: absolute;
             left: 0;
-            color: #ff6b6b;
+            color: #519c65;
             font-weight: bold;
         }
 
@@ -255,7 +255,7 @@
 
         .tech-tag {
             background: #f8f9fa;
-            color: #ff6b6b;
+            color: #519c65;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
@@ -319,34 +319,67 @@
                     <div class="timeline-dot"></div>
                     <div class="internship-content">
                         <div class="company-logo">
-                            <i class="fas fa-building"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="internship-header">
-                            <div class="company-name">TechCorp Solutions</div>
-                            <div class="position-title">Software Engineering Intern</div>
-                            <div class="internship-date">May 2024 - August 2024</div>
+                            <div class="company-name">Zeus Inc.</div>
+                            <div class="position-title">Data Scientist Intern</div>
+                            <div class="internship-date">June 2025 - August 2025</div>
                         </div>
                         <p class="internship-description">
-                            Worked on developing scalable web applications and microservices using modern technologies. 
-                            Collaborated with cross-functional teams to deliver high-quality software solutions.
+                            Led an end-to-end manufacturing improvement project focused on optimizing extrusion quality through data-driven insights and machine learning solutions.
+                        </p>
+                        <div class="responsibilities">
+                            <h4>Key Achievements:</h4>
+                            <ul>
+                                <li>Extracted, cleaned, and merged 10+ production datasets to create analysis pipeline and feature store</li>
+                                <li>Engineered domain-informed features and trained LightGBM models identifying aging humidity as leading predictor</li>
+                                <li>Designed and executed on-site validation experiment showing 4.7% increase in load-cell pressure curve flatness</li>
+                                <li>Built Dataiku dashboard and presented recommendations to plant leadership</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LightGBM</span>
+                            <span class="tech-tag">Dataiku</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">Feature Engineering</span>
+                            <span class="tech-tag">Manufacturing Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="internship-item">
+                    <div class="timeline-dot"></div>
+                    <div class="internship-content">
+                        <div class="company-logo">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="internship-header">
+                            <div class="company-name">DIAL Lab, Lucy Family Institute</div>
+                            <div class="position-title">Research Assistant</div>
+                            <div class="internship-date">January 2025 - Present</div>
+                        </div>
+                        <p class="internship-description">
+                            Conducting research on media bias analysis using Large Language Models and Natural Language Processing to examine homelessness coverage across multiple cities.
                         </p>
                         <div class="responsibilities">
                             <h4>Key Responsibilities:</h4>
                             <ul>
-                                <li>Developed RESTful APIs using Node.js and Express.js</li>
-                                <li>Implemented frontend features using React and TypeScript</li>
-                                <li>Optimized database queries and improved application performance</li>
-                                <li>Participated in code reviews and agile development processes</li>
-                                <li>Collaborated with UX/UI designers to implement responsive designs</li>
+                                <li>Utilize LLMs and NLP with spaCy to analyze biases in media coverage of homelessness</li>
+                                <li>Analyze data from ten representative cities including South Bend and San Francisco</li>
+                                <li>Develop and deploy Python scripts using BeautifulSoup for web scraping</li>
+                                <li>Process text data from ~70 news sources and social media platforms</li>
+                                <li>Conduct large-scale analysis of media bias patterns</li>
                             </ul>
                         </div>
                         <div class="technologies">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">spaCy</span>
+                            <span class="tech-tag">BeautifulSoup</span>
+                            <span class="tech-tag">LLMs</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Web Scraping</span>
                         </div>
                     </div>
                 </div>
@@ -358,31 +391,30 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="internship-header">
-                            <div class="company-name">DataFlow Analytics</div>
-                            <div class="position-title">Data Science Intern</div>
-                            <div class="internship-date">January 2024 - April 2024</div>
+                            <div class="company-name">Zeus Inc.</div>
+                            <div class="position-title">Data Scientist Intern</div>
+                            <div class="internship-date">June 2024 - August 2024</div>
                         </div>
                         <p class="internship-description">
-                            Applied machine learning techniques to analyze large datasets and extract meaningful insights. 
-                            Built predictive models to help drive business decisions and improve operational efficiency.
+                            Engineered and analyzed manufacturing data to determine ideal raw material conditions for optimizing extrusion outcomes through machine learning and data analysis.
                         </p>
                         <div class="responsibilities">
-                            <h4>Key Responsibilities:</h4>
+                            <h4>Key Achievements:</h4>
                             <ul>
-                                <li>Developed machine learning models for customer behavior prediction</li>
-                                <li>Performed data cleaning and preprocessing on large datasets</li>
-                                <li>Created interactive dashboards using Tableau and Power BI</li>
-                                <li>Presented findings to stakeholders and provided actionable recommendations</li>
-                                <li>Automated data processing pipelines using Python and Apache Airflow</li>
+                                <li>Identified abnormal humidity levels affecting ~60% of all manufacturing runs</li>
+                                <li>Leveraged Python and Dataiku to transform 10 core datasets</li>
+                                <li>Designed, tuned, and evaluated two highly performant ML models (AUC 0.83, R-squared 0.89)</li>
+                                <li>Created Dataiku dashboard to guide engineers in implementing new manufacturing process</li>
+                                <li>Increased data quality through optimized manufacturing conditions</li>
                             </ul>
                         </div>
                         <div class="technologies">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">NumPy</span>
-                            <span class="tech-tag">Tableau</span>
-                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Dataiku</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Statistical Analysis</span>
+                            <span class="tech-tag">Manufacturing Data</span>
+                            <span class="tech-tag">Dashboard Development</span>
                         </div>
                     </div>
                 </div>
@@ -391,70 +423,33 @@
                     <div class="timeline-dot"></div>
                     <div class="internship-content">
                         <div class="company-logo">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-code"></i>
                         </div>
                         <div class="internship-header">
-                            <div class="company-name">SecureNet Systems</div>
-                            <div class="position-title">Cybersecurity Intern</div>
-                            <div class="internship-date">June 2023 - August 2023</div>
-                        </div>
-                        <p class="internship-description">
-                            Assisted in security assessments and vulnerability analysis for enterprise systems. 
-                            Contributed to the development of security tools and implementation of best practices.
-                        </p>
-                        <div class="responsibilities">
-                            <h4>Key Responsibilities:</h4>
-                            <ul>
-                                <li>Conducted security audits and penetration testing on web applications</li>
-                                <li>Developed security monitoring scripts using Python and Bash</li>
-                                <li>Assisted in incident response and threat analysis</li>
-                                <li>Created security documentation and training materials</li>
-                                <li>Participated in security awareness training sessions</li>
-                            </ul>
-                        </div>
-                        <div class="technologies">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Bash</span>
-                            <span class="tech-tag">Wireshark</span>
-                            <span class="tech-tag">Metasploit</span>
-                            <span class="tech-tag">Nmap</span>
-                            <span class="tech-tag">Linux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="internship-item">
-                    <div class="timeline-dot"></div>
-                    <div class="internship-content">
-                        <div class="company-logo">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="internship-header">
-                            <div class="company-name">AppWorks Mobile</div>
-                            <div class="position-title">Mobile Development Intern</div>
+                            <div class="company-name">Fivable</div>
+                            <div class="position-title">Software Engineer Intern</div>
                             <div class="internship-date">May 2023 - August 2023</div>
                         </div>
                         <p class="internship-description">
-                            Contributed to the development of cross-platform mobile applications using React Native. 
-                            Worked on user interface design and implemented core app functionality.
+                            Developed backend fixes and frontend improvements for client-facing web applications, working closely with clients and senior developers to optimize user experiences.
                         </p>
                         <div class="responsibilities">
-                            <h4>Key Responsibilities:</h4>
+                            <h4>Key Achievements:</h4>
                             <ul>
-                                <li>Developed mobile app features using React Native and JavaScript</li>
-                                <li>Implemented responsive UI components and navigation systems</li>
-                                <li>Integrated third-party APIs and services</li>
-                                <li>Performed testing and debugging on iOS and Android platforms</li>
-                                <li>Collaborated with designers to implement UI/UX improvements</li>
+                                <li>Optimized login functionality for learning management system</li>
+                                <li>Developed personalized client website layouts</li>
+                                <li>Implemented backend fixes and frontend improvements</li>
+                                <li>Collaborated closely with clients and senior developers</li>
+                                <li>Enhanced user experience across multiple web applications</li>
                             </ul>
                         </div>
                         <div class="technologies">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Redux</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">iOS</span>
-                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Web Development</span>
+                            <span class="tech-tag">Frontend</span>
+                            <span class="tech-tag">Backend</span>
+                            <span class="tech-tag">Client Relations</span>
+                            <span class="tech-tag">Learning Management</span>
+                            <span class="tech-tag">User Experience</span>
                         </div>
                     </div>
                 </div>
