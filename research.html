@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Ben Herbst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Research Section */
+        .research {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .research-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .research-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .research-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .research-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .research-subtitle {
+            font-size: 1rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        .research-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .research-objectives {
+            margin-bottom: 1.5rem;
+        }
+
+        .research-objectives h4 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-objectives h4::before {
+            content: '🎯';
+            font-size: 1.2rem;
+        }
+
+        .research-objectives ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .research-objectives li {
+            color: #666;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .research-objectives li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .research-methodology {
+            margin-bottom: 1.5rem;
+        }
+
+        .research-methodology h4 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-methodology h4::before {
+            content: '🔬';
+            font-size: 1.2rem;
+        }
+
+        .methodology-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .research-outcomes {
+            margin-bottom: 1.5rem;
+        }
+
+        .research-outcomes h4 {
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .research-outcomes h4::before {
+            content: '📊';
+            font-size: 1.2rem;
+        }
+
+        .outcomes-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .research-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        .research-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+
+        .research-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .research-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-ongoing {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-published {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Ben Herbst</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coursework.html">Coursework</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Research</h1>
+            <p>Academic research projects and contributions to the field of computer science</p>
+        </div>
+    </section>
+
+    <section class="research">
+        <div class="container">
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-status status-published">Published</div>
+                    <div class="research-header">
+                        <div class="research-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div>
+                            <div class="research-title">Deep Learning for Cybersecurity</div>
+                            <div class="research-subtitle">Adversarial Machine Learning</div>
+                        </div>
+                    </div>
+                    <p class="research-description">
+                        Investigated the application of deep learning techniques to detect and prevent cyber attacks 
+                        in real-time. Developed novel approaches to adversarial machine learning for robust security systems.
+                    </p>
+                    <div class="research-objectives">
+                        <h4>Research Objectives</h4>
+                        <ul>
+                            <li>Develop deep learning models for intrusion detection</li>
+                            <li>Analyze adversarial attacks on security systems</li>
+                            <li>Create robust defense mechanisms against evasion attacks</li>
+                            <li>Evaluate model performance on real-world datasets</li>
+                        </ul>
+                    </div>
+                    <div class="research-methodology">
+                        <h4>Methodology</h4>
+                        <p class="methodology-text">
+                            Used convolutional neural networks and recurrent neural networks to analyze network traffic patterns. 
+                            Implemented adversarial training techniques to improve model robustness. Conducted extensive 
+                            experiments on benchmark datasets including NSL-KDD and CICIDS2017.
+                        </p>
+                    </div>
+                    <div class="research-outcomes">
+                        <h4>Key Outcomes</h4>
+                        <p class="outcomes-text">
+                            Achieved 95% accuracy in detecting malicious network traffic with only 2% false positive rate. 
+                            Successfully defended against 80% of adversarial attacks. Published findings in IEEE Security & Privacy.
+                        </p>
+                    </div>
+                    <div class="research-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">Wireshark</span>
+                    </div>
+                    <div class="research-links">
+                        <a href="#" class="research-link">
+                            <i class="fas fa-file-pdf"></i>
+                            Paper
+                        </a>
+                        <a href="#" class="research-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-status status-ongoing">Ongoing</div>
+                    <div class="research-header">
+                        <div class="research-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <div class="research-title">Predictive Analytics for Healthcare</div>
+                            <div class="research-subtitle">Machine Learning in Medicine</div>
+                        </div>
+                    </div>
+                    <p class="research-description">
+                        Developing machine learning models to predict patient outcomes and assist in clinical decision-making. 
+                        Focusing on early detection of diseases and personalized treatment recommendations.
+                    </p>
+                    <div class="research-objectives">
+                        <h4>Research Objectives</h4>
+                        <ul>
+                            <li>Build predictive models for disease progression</li>
+                            <li>Analyze electronic health records for patterns</li>
+                            <li>Develop interpretable AI models for clinicians</li>
+                            <li>Ensure patient privacy and data security</li>
+                        </ul>
+                    </div>
+                    <div class="research-methodology">
+                        <h4>Methodology</h4>
+                        <p class="methodology-text">
+                            Using ensemble methods combining random forests, gradient boosting, and neural networks. 
+                            Implementing federated learning to maintain data privacy. Collaborating with medical professionals 
+                            to validate clinical relevance of predictions.
+                        </p>
+                    </div>
+                    <div class="research-outcomes">
+                        <h4>Preliminary Results</h4>
+                        <p class="outcomes-text">
+                            Achieved 87% accuracy in predicting 30-day readmission risk. Successfully identified high-risk 
+                            patients with 92% sensitivity. Currently expanding to multiple disease domains.
+                        </p>
+                    </div>
+                    <div class="research-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">LightGBM</span>
+                        <span class="tech-tag">SHAP</span>
+                        <span class="tech-tag">HIPAA</span>
+                    </div>
+                    <div class="research-links">
+                        <a href="#" class="research-link">
+                            <i class="fas fa-file-alt"></i>
+                            Abstract
+                        </a>
+                        <a href="#" class="research-link">
+                            <i class="fas fa-chart-bar"></i>
+                            Results
+                        </a>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-status status-completed">Completed</div>
+                    <div class="research-header">
+                        <div class="research-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div>
+                            <div class="research-title">5G Network Optimization</div>
+                            <div class="research-subtitle">Wireless Communications</div>
+                        </div>
+                    </div>
+                    <p class="research-description">
+                        Researched optimization techniques for 5G network performance and resource allocation. 
+                        Developed algorithms to improve network efficiency and reduce latency in dense urban environments.
+                    </p>
+                    <div class="research-objectives">
+                        <h4>Research Objectives</h4>
+                        <ul>
+                            <li>Optimize resource allocation in 5G networks</li>
+                            <li>Reduce network latency and improve throughput</li>
+                            <li>Develop energy-efficient communication protocols</li>
+                            <li>Analyze performance in high-density scenarios</li>
+                        </ul>
+                    </div>
+                    <div class="research-methodology">
+                        <h4>Methodology</h4>
+                        <p class="methodology-text">
+                            Implemented reinforcement learning algorithms for dynamic resource allocation. Used network 
+                            simulation tools to model 5G environments. Conducted performance analysis using real-world 
+                            network traces and synthetic data.
+                        </p>
+                    </div>
+                    <div class="research-outcomes">
+                        <h4>Key Outcomes</h4>
+                        <p class="outcomes-text">
+                            Achieved 40% improvement in network throughput and 60% reduction in latency compared to 
+                            traditional allocation methods. Successfully demonstrated scalability for urban deployment scenarios.
+                        </p>
+                    </div>
+                    <div class="research-technologies">
+                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NS-3</span>
+                        <span class="tech-tag">Q-Learning</span>
+                        <span class="tech-tag">5G NR</span>
+                    </div>
+                    <div class="research-links">
+                        <a href="#" class="research-link">
+                            <i class="fas fa-file-pdf"></i>
+                            Thesis
+                        </a>
+                        <a href="#" class="research-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-status status-ongoing">Ongoing</div>
+                    <div class="research-header">
+                        <div class="research-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div>
+                            <div class="research-title">Autonomous Vehicle Navigation</div>
+                            <div class="research-subtitle">Computer Vision & Robotics</div>
+                        </div>
+                    </div>
+                    <p class="research-description">
+                        Working on computer vision algorithms for autonomous vehicle navigation in complex urban environments. 
+                        Developing robust perception systems for obstacle detection and path planning.
+                    </p>
+                    <div class="research-objectives">
+                        <h4>Research Objectives</h4>
+                        <ul>
+                            <li>Improve object detection accuracy in adverse conditions</li>
+                            <li>Develop robust path planning algorithms</li>
+                            <li>Enhance real-time decision making capabilities</li>
+                            <li>Ensure safety and reliability in edge cases</li>
+                        </ul>
+                    </div>
+                    <div class="research-methodology">
+                        <h4>Methodology</h4>
+                        <p class="methodology-text">
+                            Using deep learning models for object detection and semantic segmentation. Implementing 
+                            reinforcement learning for path planning. Testing on simulated environments and real-world 
+                            datasets including KITTI and Cityscapes.
+                        </p>
+                    </div>
+                    <div class="research-outcomes">
+                        <h4>Current Progress</h4>
+                        <p class="outcomes-text">
+                            Achieved 94% accuracy in object detection under normal conditions and 87% under adverse weather. 
+                            Successfully implemented real-time path planning with 50ms response time. Currently working on 
+                            edge case handling and safety validation.
+                        </p>
+                    </div>
+                    <div class="research-technologies">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">YOLO</span>
+                        <span class="tech-tag">ROS</span>
+                        <span class="tech-tag">CUDA</span>
+                    </div>
+                    <div class="research-links">
+                        <a href="#" class="research-link">
+                            <i class="fas fa-video"></i>
+                            Demo
+                        </a>
+                        <a href="#" class="research-link">
+                            <i class="fas fa-chart-line"></i>
+                            Metrics
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 

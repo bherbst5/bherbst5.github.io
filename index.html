@@ -1,70 +1,276 @@
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
-<meta http-equiv='pragma' content='no-cache'>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Ben Herbst - Personal Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            background-size: cover;
-            background-position: center;
-            background-image: url('https://admissions.nd.edu/assets/328579/850x478/campus_aerial.jpg')
+            box-sizing: border-box;
         }
-        header {
-            background-color: #36914e;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
+
         .container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 0 20px;
-            text-align: center;
         }
-        p {
-            color: #555;
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
-        h1 {
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
             text-align: center;
             color: white;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            margin: 10px;
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .button:hover {
-            background-color: #555;
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-    </header>
-    <div class="container">
-        <h1>Ben Herbst</h1>
-        <p></p>
-        <a href="https://www.linkedin.com/in/ben-herbst-63602a247" class="button">LinkedIn</a>
-        <a href="https://github.com/bherbst5" class="button">GitHub</a>
-    </div>
-    <footer>
-        <div class="container">
-            <p></p>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Ben Herbst</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coursework.html">Coursework</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
         </div>
-    </footer>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Ben Herbst</h1>
+                <p>Computer Science Student & Aspiring Software Engineer</p>
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/ben-herbst-63602a247" class="btn btn-primary">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/bherbst5" class="btn">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I'm a passionate computer science student with a strong foundation in software development and a keen interest in emerging technologies. I enjoy solving complex problems and building innovative solutions that make a difference.</p>
+                    <p>Currently pursuing my degree while gaining hands-on experience through internships and research projects. I'm always eager to learn new technologies and collaborate on exciting projects.</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x300/667eea/ffffff?text=Ben+Herbst" alt="Ben Herbst" style="width: 100%; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
 

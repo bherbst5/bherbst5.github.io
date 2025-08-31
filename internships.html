@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships - Ben Herbst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 120px 0 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Internships Section */
+        .internships {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .internship-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .internship-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .internship-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .internship-content {
+            width: 45%;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .internship-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .internship-header {
+            margin-bottom: 1rem;
+        }
+
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .position-title {
+            font-size: 1.1rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .internship-date {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .internship-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .responsibilities {
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            color: #666;
+            margin-bottom: 0.3rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid #e9ecef;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .internship-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .internship-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Ben Herbst</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coursework.html">Coursework</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="research.html">Research</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Internships</h1>
+            <p>Professional experience and industry exposure that has shaped my career journey</p>
+        </div>
+    </section>
+
+    <section class="internships">
+        <div class="container">
+            <div class="timeline">
+                <div class="internship-item">
+                    <div class="timeline-dot"></div>
+                    <div class="internship-content">
+                        <div class="company-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="internship-header">
+                            <div class="company-name">TechCorp Solutions</div>
+                            <div class="position-title">Software Engineering Intern</div>
+                            <div class="internship-date">May 2024 - August 2024</div>
+                        </div>
+                        <p class="internship-description">
+                            Worked on developing scalable web applications and microservices using modern technologies. 
+                            Collaborated with cross-functional teams to deliver high-quality software solutions.
+                        </p>
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Developed RESTful APIs using Node.js and Express.js</li>
+                                <li>Implemented frontend features using React and TypeScript</li>
+                                <li>Optimized database queries and improved application performance</li>
+                                <li>Participated in code reviews and agile development processes</li>
+                                <li>Collaborated with UX/UI designers to implement responsive designs</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="internship-item">
+                    <div class="timeline-dot"></div>
+                    <div class="internship-content">
+                        <div class="company-logo">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="internship-header">
+                            <div class="company-name">DataFlow Analytics</div>
+                            <div class="position-title">Data Science Intern</div>
+                            <div class="internship-date">January 2024 - April 2024</div>
+                        </div>
+                        <p class="internship-description">
+                            Applied machine learning techniques to analyze large datasets and extract meaningful insights. 
+                            Built predictive models to help drive business decisions and improve operational efficiency.
+                        </p>
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Developed machine learning models for customer behavior prediction</li>
+                                <li>Performed data cleaning and preprocessing on large datasets</li>
+                                <li>Created interactive dashboards using Tableau and Power BI</li>
+                                <li>Presented findings to stakeholders and provided actionable recommendations</li>
+                                <li>Automated data processing pipelines using Python and Apache Airflow</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Tableau</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="internship-item">
+                    <div class="timeline-dot"></div>
+                    <div class="internship-content">
+                        <div class="company-logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="internship-header">
+                            <div class="company-name">SecureNet Systems</div>
+                            <div class="position-title">Cybersecurity Intern</div>
+                            <div class="internship-date">June 2023 - August 2023</div>
+                        </div>
+                        <p class="internship-description">
+                            Assisted in security assessments and vulnerability analysis for enterprise systems. 
+                            Contributed to the development of security tools and implementation of best practices.
+                        </p>
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Conducted security audits and penetration testing on web applications</li>
+                                <li>Developed security monitoring scripts using Python and Bash</li>
+                                <li>Assisted in incident response and threat analysis</li>
+                                <li>Created security documentation and training materials</li>
+                                <li>Participated in security awareness training sessions</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">Metasploit</span>
+                            <span class="tech-tag">Nmap</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="internship-item">
+                    <div class="timeline-dot"></div>
+                    <div class="internship-content">
+                        <div class="company-logo">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="internship-header">
+                            <div class="company-name">AppWorks Mobile</div>
+                            <div class="position-title">Mobile Development Intern</div>
+                            <div class="internship-date">May 2023 - August 2023</div>
+                        </div>
+                        <p class="internship-description">
+                            Contributed to the development of cross-platform mobile applications using React Native. 
+                            Worked on user interface design and implemented core app functionality.
+                        </p>
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Developed mobile app features using React Native and JavaScript</li>
+                                <li>Implemented responsive UI components and navigation systems</li>
+                                <li>Integrated third-party APIs and services</li>
+                                <li>Performed testing and debugging on iOS and Android platforms</li>
+                                <li>Collaborated with designers to implement UI/UX improvements</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">iOS</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
